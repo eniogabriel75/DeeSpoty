@@ -12,8 +12,10 @@ class SpotifyService:
             'client_id': cls.CLIENT_ID,
             'response_type': 'code',
             'redirect_uri': cls.REDIRECT_URI,
-            'scope': 'user-read-private user-read-email',  # Adicione as permissões necessárias
-        }
+            'scope': 'user-read-private user-read-email''playlist-read-private''playlist-read-collaborative''playlist-modify-private''playlist-modify-public'
+            'user-read-playback-state''user-modify-playback-state''user-read-currently-playing''user-read-playback-position''user-top-read''user-read-recently-played'
+            'user-library-modify''user-library-read''user-soa-link''user-soa-unlink''user-manage-entitlements''user-manage-partner''user-create-partner',  # Adicione as permissões necessárias
+            }, 
         url = f'{endpoint}?{"&".join(f"{key}={value}" for key, value in params.items())}'
         return url
 
