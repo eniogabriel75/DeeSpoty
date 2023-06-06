@@ -33,7 +33,6 @@ class Creator(models.Model):
     name = models.CharField(max_length=20)
 
 class PodCasts(models.Model):
-    id = models.CharField(max_length=255, primary_key=True, unique=True)  
     title = models.CharField(max_length=20)  
     description = models.CharField(max_length=150)
     creator = models.ForeignKey(Creator, on_delete=models.CASCADE)
@@ -42,3 +41,8 @@ class CollectionTracks(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     track_id = models.ForeignKey(Track, on_delete=models.CASCADE)
     total_tracks = models.CharField(max_length=255)
+
+class CollectionPods(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    cast_id = models.ForeignKey(PodCasts, on_delete=models.CASCADE)
+    total_casts = models.CharField(max_length=100)
